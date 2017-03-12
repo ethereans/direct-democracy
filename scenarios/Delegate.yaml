@@ -1,0 +1,21 @@
+# 
+# Scenario2 
+# 
+# Created on: 12/03/2017 00:24:38 
+# 
+
+# Call method delegate(address)
+- from: '0x1081108d14493ead0d4071cc757688ed7b111c32'
+  to: '0x838ef69e5948e423db15757059d538b5bcaf659e'
+  value: '0x0'
+  call: delegate(address)
+  args:
+    - '0x630c57c4ac63621714412bf9a5eedda89ec05a02'
+
+# Call method delegate(address)
+- from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
+  to: '0x838ef69e5948e423db15757059d538b5bcaf659e'
+  value: '0x0'
+  call: delegate(address)
+  args:
+    - '0x630c57c4ac63621714412bf9a5eedda89ec05a02'

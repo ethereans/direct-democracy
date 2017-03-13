@@ -2,12 +2,6 @@
   "contracts": "contracts",
   
   "deploy": ["DelegativeVoteToken"],
-  "plugins": {
-    "oraclize": {
-      "networkID": 161,
-      "loadRealData": true
-    }
-  },
 
   "env": {
     "block": {
@@ -43,7 +37,21 @@
         "balance": 1000000000000000000000000000000000000000000000000000000 ,
         "nonce": "0x1cf",
         "pkey": "0x6321991cf5102acf1efd6085da03b398a56cdc887b38acb1ba1452a50bc79343", 
-        "default": true
+        "default": false
+      },
+      "0x1528892f72F1C6CE107bFb6f3535ecEf7bb713eE": {
+        "name": "E",
+        "balance": 1000000000000000000000000000000000000000000000000000000 ,
+        "nonce": "0x1cf",
+        "pkey": "0xbc047d0ee9735913d1418fb441b323fd30afbbb6478e88021bdb22ffad61113d", 
+        "default": false
+      },
+      "0x6c87DeA4219e4d103D56AfD4CD0ceF26C7e93B00": {
+        "name": "F",
+        "balance": 1000000000000000000000000000000000000000000000000000000 ,
+        "nonce": "0x1cf",
+        "pkey": "0x144092d114f4769738d62539c4146f9fbb97120a16a816033ad9088ce12f4118", 
+        "default": false
       }
       
     }

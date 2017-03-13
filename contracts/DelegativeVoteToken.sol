@@ -10,7 +10,7 @@ pragma solidity ^0.4.9;
 import "lib/ethereans/abstract-token/WrappedEthToken.sol";
 
 contract DelegativeVoteToken is WrappedEthToken {
-
+    
     mapping (address => Delegation) private delegations;
     event Delegate(address who, address to);
     
@@ -38,6 +38,7 @@ contract DelegativeVoteToken is WrappedEthToken {
      returns (bool) {
          super.transferFrom(_from, _to, _value);
          _forwardDelegation(_from);
+         _forwardDelegation(_to);
         return true;    
     }
     
@@ -45,6 +46,7 @@ contract DelegativeVoteToken is WrappedEthToken {
      returns (bool) {
          super.transfer(_to, _value);
         _forwardDelegation(msg.sender);
+        _forwardDelegation(_to);
         return true;
     }
     

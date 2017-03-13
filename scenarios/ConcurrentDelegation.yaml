@@ -1,46 +1,46 @@
 # 
-# Scenario1 
+# Deposit values into 6 accounts, make 2 delegation lines, transfer between lines 
 # 
 # Created on: 12/03/2017 18:47:25 
 # 
 
-# A.deposit()
+# A_1.deposit()
 - from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x3e8'
   call: deposit()
   args: []
 
-# B.deposit() 
-- from: '0xEd21b494c85d020bB8245718EB06C90ddc66e95D'
+# A_2.deposit() 
+- from: '0xed21b494c85d020bb8245718eb06c90ddc66e95d'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x3e8'
   call: deposit()
   args: []
 
-# C.deposit()
-- from: '0x434aD371B0C3D8dAE69E8aBc6AC2b8f191598b35'
+# A_3.deposit()
+- from: '0x434ad371b0c3d8dae69e8abc6ac2b8f191598b35'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x3e8'
   call: deposit()
   args: []
 
-# D.deposit()
+# B_1.deposit()
 - from: '0x1081108d14493ead0d4071cc757688ed7b111c32'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x3e8'
   call: deposit()
   args: []
   
-# E.deposit()
-- from: '0x1528892f72F1C6CE107bFb6f3535ecEf7bb713eE'
+# B_2.deposit()
+- from: '0x1528892f72f1c6ce107bfb6f3535ecef7bb713ee'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x3e8'
   call: deposit()
   args: []
   
-# F.deposit()
-- from: '0x6c87DeA4219e4d103D56AfD4CD0ceF26C7e93B00'
+# B_3.deposit()
+- from: '0x6c87dea4219e4d103d56afd4cd0cef26c7e93b00'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x3e8'
   call: deposit()
@@ -49,25 +49,23 @@
 
 
 
-# A.delegate(B)
+# A_1.delegate(A_2)
 - from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x0'
   call: delegate(address)
   args:
-    - '0xEd21b494c85d020bB8245718EB06C90ddc66e95D'
+    - '0xed21b494c85d020bb8245718eb06c90ddc66e95d'
 
-# B.delegate(C)
-- from: '0xEd21b494c85d020bB8245718EB06C90ddc66e95D'
+# A_2.delegate(A_3)
+- from: '0xed21b494c85d020bb8245718eb06c90ddc66e95d'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x0'
   call: delegate(address)
   args:
-    - '0x434aD371B0C3D8dAE69E8aBc6AC2b8f191598b35'
+    - '0x434ad371b0c3d8dae69e8abc6ac2b8f191598b35'
 
-
-
-# D.delegate(E)
+# B_1.delegate(B_2)
 - from: '0x1081108d14493ead0d4071cc757688ed7b111c32'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x0'
@@ -75,11 +73,57 @@
   args:
     - '0x1528892f72F1C6CE107bFb6f3535ecEf7bb713eE'
     
-# E.delegate(F)
-- from: '0x1528892f72F1C6CE107bFb6f3535ecEf7bb713eE'
+# B_2.delegate(B_3)
+- from: '0x1528892f72f1c6ce107bfb6f3535ecef7bb713ee'
   to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
   value: '0x0'
   call: delegate(address)
   args:
     - '0x6c87DeA4219e4d103D56AfD4CD0ceF26C7e93B00'
 
+
+
+# A_1.transfer(A_2,100)
+- from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: 'transfer(address,uint256)'
+  args:
+    - '0xed21b494c85d020bb8245718eb06c90ddc66e95d'
+    - 100
+    
+# A_1.transfer(B_1,100)
+- from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: 'transfer(address,uint256)'
+  args:
+    - '0x1081108d14493ead0d4071cc757688ed7b111c32'
+    - 100
+
+# A_2.transfer(B_2,100)
+- from: '0xed21b494c85d020bb8245718eb06c90ddc66e95d'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: 'transfer(address,uint256)'
+  args:
+    - '0x1528892f72f1c6ce107bfb6f3535ecef7bb713ee'
+    - 100
+    
+# A_3.transfer(A_1,100)
+- from: '0x434ad371b0c3d8dae69e8abc6ac2b8f191598b35'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: 'transfer(address,uint256)'
+  args:
+    - '0xed21b494c85d020bb8245718eb06c90ddc66e95d'
+    - 100
+    
+# A_3.transfer(B_3,100)
+- from: '0x434ad371b0c3d8dae69e8abc6ac2b8f191598b35'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: 'transfer(address,uint256)'
+  args:
+    - '0x6c87dea4219e4d103d56afd4cd0cef26c7e93b00'
+    - 100

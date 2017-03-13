@@ -1,0 +1,20 @@
+# 
+# Scenario1 
+# 
+# Created on: 13/03/2017 02:48:45 
+# 
+
+# Call method deposit()
+- from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x64'
+  call: deposit()
+  args: []
+
+# Call method delegate(address)
+- from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: delegate(address)
+  args:
+    - '0x1081108d14493ead0d4071cc757688ed7b111c32'

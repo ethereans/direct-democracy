@@ -1,0 +1,65 @@
+# 
+# Scenario1 
+# 
+# Created on: 12/03/2017 18:47:25 
+# 
+
+# Call method deposit()
+- from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x3e8'
+  call: deposit()
+  args: []
+
+# Call method deposit()
+- from: '0xEd21b494c85d020bB8245718EB06C90ddc66e95D'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x3e8'
+  call: deposit()
+  args: []
+
+# Call method deposit()
+- from: '0x434aD371B0C3D8dAE69E8aBc6AC2b8f191598b35'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x3e8'
+  call: deposit()
+  args: []
+
+# Call method deposit()
+- from: '0x1081108d14493ead0d4071cc757688ed7b111c32'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x3e8'
+  call: deposit()
+  args: []
+
+# Call method delegate(address)
+- from: '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: delegate(address)
+  args:
+    - '0xEd21b494c85d020bB8245718EB06C90ddc66e95D'
+
+# Call method delegate(address)
+- from: '0xEd21b494c85d020bB8245718EB06C90ddc66e95D'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: delegate(address)
+  args:
+    - '0x434aD371B0C3D8dAE69E8aBc6AC2b8f191598b35'
+
+# Call method delegate(address)
+- from: '0x434aD371B0C3D8dAE69E8aBc6AC2b8f191598b35'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: delegate(address)
+  args:
+    - '0x1081108d14493ead0d4071cc757688ed7b111c32'
+
+# Call method delegate(address)
+- from: '0x1081108d14493ead0d4071cc757688ed7b111c32'
+  to: '0x17956ba5f4291844bc25aedb27e69bc11b5bda39'
+  value: '0x0'
+  call: delegate(address)
+  args:
+    - '0xdedb49385ad5b94a16f236a6890cf9e0b1e30392'

@@ -12,34 +12,10 @@ import "./LiquidDelegativeDemocracy.sol";
 
 contract DelegativeVoteToken is WrappedEthToken, LiquidDelegativeDemocracy {
     
-    function deposit()
-     payable {
-        super.deposit();
-         _updateDelegation(msg.sender);
-     }
-
-    function destroy(address _from, uint _value)
+    function _balanceUpdated(address _from)
      internal {
-        super.destroy(_from, _value); 
-         _updateDelegation(_from);
+        _updateDelegation(_from);
     }
-    
-    function transferFrom(address _from, address _to, uint256 _value) 
-     returns (bool) {
-         super.transferFrom(_from, _to, _value);
-         _updateDelegation(_from);
-         _updateDelegation(_to);
-        return true;    
-    }
-    
-    function transfer(address _to, uint256 _value) 
-     returns (bool) {
-         super.transfer(_to, _value);
-        _updateDelegation(msg.sender);
-        _updateDelegation(_to);
-        return true;
-    }
-    
     
     function _votesSource(address _who)
     internal 

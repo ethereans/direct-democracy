@@ -17,7 +17,7 @@ contract LiquidDelegativeDemocracy {
         uint256 toIndex; //the position in the mapping of reciever
         mapping (address => uint256) from; //mapping of values recieved from delegators
         mapping (uint256 => address) fromIndex; //indexes of delegators
-        uint256 fromLenght; //total delegators
+        uint256 fromLength; //total delegators
     }
     
     //returns the destination of an account's votes
@@ -47,20 +47,20 @@ contract LiquidDelegativeDemocracy {
         if(_oldTo != 0x0) { // _from was delegating?
             uint256 _oldToIndex = delegations[_from].toIndex; //msg.sender index in Delegator from list.
             delete delegations[_oldTo].from[_from]; //delete our votes
-            delegations[_oldTo].fromLenght--; //decrement _oldTo from index size
-            if(_oldToIndex < delegations[_oldTo].fromLenght)
-                delegations[_oldTo].fromIndex[_oldToIndex] = delegations[_oldTo].fromIndex[delegations[_oldTo].fromLenght]; //put latest index in place of msg.sender position
-            delete delegations[_oldTo].fromIndex[delegations[_oldTo].fromLenght]; //clear impossible position;
+            delegations[_oldTo].fromLength--; //decrement _oldTo from index size
+            if(_oldToIndex < delegations[_oldTo].fromLength)
+                delegations[_oldTo].fromIndex[_oldToIndex] = delegations[_oldTo].fromIndex[delegations[_oldTo].fromLength]; //put latest index in place of msg.sender position
+            delete delegations[_oldTo].fromIndex[delegations[_oldTo].fromLength]; //clear impossible position;
             _updateDelegation(_oldTo); //update values
         }
         
         delegations[_from].to = _to; //register where our delegation is going
         if(_to != 0x0) { //_to is an account?
-            uint256 newPos = delegations[_to].fromLenght;
+            uint256 newPos = delegations[_to].fromLength;
             _updateDelegation(_from); //update values
-            delegations[_to].fromIndex[newPos] = _from; //add account into stack mapped to lenght
+            delegations[_to].fromIndex[newPos] = _from; //add account into stack mapped to length
             delegations[_from].toIndex = newPos; //register the index of our address delegation (for mapping clean)
-            delegations[_to].fromLenght++; //increment _to from index size
+            delegations[_to].fromLength++; //increment _to from index size
         } else {
             delegations[_from].toIndex = 0; //reset index
         }
